@@ -59,6 +59,7 @@ document.querySelectorAll("#postDate").forEach(setPostDate);
 const allPostButtonForms = document.querySelectorAll("#postButtonForm");
 
 function actionToSubmit(form, button) {
+  // This could've been done using the formaction attribute on each button instead of a dataset, but I did not know that at the time
   form.action = button.dataset.action;
   form.submit();
 }
