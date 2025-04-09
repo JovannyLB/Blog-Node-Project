@@ -1,0 +1,11 @@
+<form id="postButtonForm" method="post">
+  <input type="hidden" name="postId" id="postId" value="<%= post.id %>" />
+  <div class="post-button <%= selectedButton ? "post-selected" : "" %>">
+    <div id="postButton" class="post-list-post-title" data-action="/see-post">
+      <h4><%= post.title %></h4>
+      <p id="postDate" data-dateposted="<%= post.date %>"></p>
+    </div>
+    <img id="editButton" class="post-edit-button post-icon" data-action="/edit-post" src="edit-svg.svg" alt="edit icon" />
+    <img id="deleteButton" class="post-delete-button post-icon" data-action="/delete-post" src="delete-svg.svg" alt="delete icon" />
+  </div>
+</form>

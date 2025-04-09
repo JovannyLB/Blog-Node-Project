@@ -1,0 +1,258 @@
+body {
+  margin: 0;
+
+  display: flex;
+}
+
+body * {
+  color: #efeff0;
+  font-family: "Nova Round";
+
+  scrollbar-color: #efeff0 transparent;
+
+  margin: 0;
+  padding: 0;
+}
+
+/* Font */
+.nova-round-regular {
+  font-family: "Nova Round", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Post list */
+.post-list-container {
+  overflow-y: auto;
+
+  flex: 0 0 350px;
+  height: 100vh;
+  box-sizing: border-box;
+
+  background-color: #202225;
+
+  padding: 20px;
+}
+
+.post-list-container > .post-list-title {
+  padding-bottom: 10px;
+}
+
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5px;
+}
+
+.post-button,
+.post-new-button {
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.post-button {
+  display: grid;
+  grid-template: 1fr 1fr / auto 25px;
+  gap: 2.5px;
+
+  border: 3px solid transparent;
+  padding: 7px;
+}
+
+.post-button:hover,
+.post-new-button:hover {
+  background-color: #403e3d;
+}
+
+.post-button > div {
+  grid-row: span 2;
+}
+
+.post-new-button {
+  padding: 0;
+  height: 72px;
+}
+
+.post-list-post-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.post-list-post-title > p {
+  font-size: 12px;
+}
+
+.post-add-icon,
+.post-icon {
+  box-sizing: border-box;
+
+  padding: 2.5px;
+}
+
+.post-new-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.post-add-icon {
+  width: 50%;
+  height: 50%;
+}
+
+.post-icon {
+  visibility: hidden;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius: 5px;
+}
+
+.post-icon:hover {
+  background-color: #202225;
+}
+
+.post-button:hover .post-icon {
+  visibility: visible;
+}
+
+.post-selected {
+  background-color: #403e3d;
+  border-color: #e79b1c;
+}
+
+/* Post */
+.post-container {
+  overflow-y: auto;
+
+  flex: 1 1 0;
+  height: 100vh;
+  box-sizing: border-box;
+
+  background-color: #36393f;
+
+  padding: 60px 15%;
+}
+
+.post-content {
+  margin-top: 16px;
+  padding: 16px;
+
+  overflow-wrap: anywhere;
+}
+
+/* Post cration/edit modal */
+.post-modal-container {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1;
+
+  background-color: #202225;
+}
+
+.post-modal-container-show {
+  display: flex;
+}
+
+.post-modal {
+  padding: 16px;
+  border-radius: 10px;
+  width: 50%;
+  height: 50%;
+
+  display: grid;
+  grid-template: 48px auto 24px / 1fr 1fr;
+  gap: 5px;
+
+  background-color: #36393f;
+}
+
+.post-modal-title {
+  grid-column: span 2;
+}
+
+.post-modal-content {
+  grid-column: span 2;
+}
+
+input,
+textarea,
+button {
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  background-color: #202225;
+}
+
+textarea {
+  resize: none;
+  padding: 10px;
+}
+
+input {
+  font-size: 18px;
+  padding-left: 10px;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #403e3d;
+}
+
+/* Cellphone */
+@media (max-width: 600px) {
+  body {
+    flex-direction: column-reverse;
+    height: 100vh;
+  }
+
+  .post-container {
+    flex: 1 1 auto;
+
+    padding: 60px 10%;
+  }
+
+  .post-list-container {
+    flex: 0 0 auto;
+    height: fit-content;
+  }
+
+  .post-list {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .post-list > * {
+    flex: 0 0 310px;
+  }
+
+  .post-list-title {
+    display: none;
+  }
+
+  .post-new-button {
+    flex-basis: 72.5px;
+  }
+
+  .post-button,
+  .post-new-button {
+    background-color: #403e3d;
+  }
+
+  .post-selected .post-icon {
+    background-color: #202225;
+    visibility: visible;
+  }
+}

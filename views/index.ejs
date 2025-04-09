@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>War's Blog</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nova+Round&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="post-list-container">
+      <div class="post-list-title">
+        <h3>Posts</h3>
+      </div>
+      <div class="post-list">
+        <div id="newPostButton" class="post-new-button">
+          <img class="post-add-icon" src="plus-svg.svg" alt="add icon" />
+        </div>
+        
+        <% if (locals.posts) { %>
+          <% for (let i = 0; i < posts.length; i++) { %>
+            <%- include("partials/post-button.ejs", { post: posts[i], selectedButton: (currentSelectedPost === i ? true : false) }) %>
+          <% }; %>
+        <% }; %>
+      </div>
+    </div>
+
+    <div class="post-container">
+      <% if (locals.posts.length !== 0) { %>
+        <%- include("partials/post.ejs", { post: posts[currentSelectedPost] }) %>
+      <% } else { %>
+        <h1 class="post-title">There are no posts...</h1>
+      <% } %>
+    </div>
+
+    <div id="createPostModal" class="post-modal-container" data-editing="<%= isEditingPost %>">
+      <form action="/submit-post" method="post" class="post-modal">
+        <input type="text" class="post-modal-title" required maxlength="18" name="title" id="title" placeholder="Title" value="<% if (locals.postToEdit) { %><%= postToEdit.title %><% } %>"></input>
+        <textarea class="post-modal-content" required name="content" id="content" placeholder="Content"><% if (locals.postToEdit) { %><%= postToEdit.content.replaceAll("<br>", "\r") %><% } %></textarea>
+        <button type="button" id="cancelPostModal" class="post-modal-cancel" data-action="/cancel-edit-post">Cancel</button>
+        <button type="submit" class="post-modal-submit">Submit</button>
+      </form>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
