@@ -6,3 +6,5 @@
 [![image.png](https://i.postimg.cc/282mHNCN/image.png)](https://postimg.cc/SJ2ws5Xg)
 ### Create/Edit Post Modal
 [![image.png](https://i.postimg.cc/SQGJp5mD/image.png)](https://postimg.cc/rzK81f0r)
+### Mobile Version
+[![image.png](https://i.postimg.cc/Y9ML6wpL/image.png)](https://postimg.cc/R3p0myJv)
